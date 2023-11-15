@@ -1,14 +1,11 @@
 streamlit
 pyjstat
 requests
-json
-os
 pandas
 streamlit
 urllib
 matplotlib
 numpy
-pandas
 seaborn
 tqdm
 plotly
