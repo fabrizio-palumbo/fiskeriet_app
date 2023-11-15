@@ -10,7 +10,7 @@ from tqdm import tqdm
 import plotly.express as px
 import pandas as pd
 
-def import_dataset_ERS(year_start, year_stop,type_fisks):
+def import_dataset_ERS(year_start, year_stop,type_fisks,f):
     
     dfs = []
     for year in tqdm(range(year_start, year_stop+1)):
@@ -30,7 +30,7 @@ def import_dataset_ERS(year_start, year_stop,type_fisks):
         dfs_concat[col] = pd.to_datetime(dfs_concat[col], dayfirst=True, format='mixed')
     return dfs_concat,typefisk
 
-def plot_dca_map_catch_interactive_year_old(df_tot, leng_or_komp, color_scale,marker_opacity=0.7, output_html_path="figure.html", variable_size="Rundvekt"):
+def plot_dca_map_catch_interactive_year_old(df_tot,f, leng_or_komp, color_scale,marker_opacity=0.7, output_html_path="figure.html", variable_size="Rundvekt"):
 
     if 'year' not in df_tot.columns:
         raise ValueError("Dataframe must contain 'year' column")
@@ -57,7 +57,7 @@ def plot_dca_map_catch_interactive_year_old(df_tot, leng_or_komp, color_scale,ma
     #color_scale = px.colors.make_colorscale([color_discrete_map[min_year], color_discrete_map[max_year]])
 
     # Create the animated map using Plotly Express
-    fig = px.scatter_mapbox(grouped, lat='LATITUDE', lon='LONGITUDE', 
+    f = px.scatter_mapbox(grouped, lat='LATITUDE', lon='LONGITUDE', 
                             color='year',  # Now using 'year' for color
                             size=variable_size,
                             color_continuous_scale=color_scale,  # Use the continuous color scale
@@ -75,7 +75,7 @@ def plot_dca_map_catch_interactive_year_old(df_tot, leng_or_komp, color_scale,ma
     #    margin={"r": 0, "t": 0, "l": 0, "b": 0},
     #    title=f'Catch over the Years by {grouped.Art.unique()[0]}',
     #)
-    fig.update_layout(
+    f.update_layout(
         mapbox_style="white-bg",
         mapbox_layers=[
             {
@@ -88,7 +88,7 @@ def plot_dca_map_catch_interactive_year_old(df_tot, leng_or_komp, color_scale,ma
             }
         ])
     # Add title
-    fig.add_annotation(
+    f.add_annotation(
         text=f"DCA over the Years by {grouped.Art.unique()[0]}",
         x=0.5, y=1, xref="paper", yref="paper",
         showarrow=False, font=dict(size=18, color="black"),
@@ -99,7 +99,7 @@ def plot_dca_map_catch_interactive_year_old(df_tot, leng_or_komp, color_scale,ma
     #fig.write_html(output_html_path)
 
     # Display the map
-    fig.show()
+    return f#.show()
 
 year_start = 2011; year_stop = 2022
 typefisks=['Torsk', 'Sei', 'Dypvannsreke']#,'Reke av  Palaemonidaeslekten',  'Hestereke', 'Reke av  Pandalusslekten', 'Reke av Penaeusslekten', 'Reke av Crangonidaeslekten']
@@ -136,7 +136,7 @@ with title_container:
         
         st.write('Welcome to the Norwegian Municipalities Health System Dashboard! This dashboard is designed to help you explore data on the health systems of Norwegian municipalities, with particular focus on Elderlycare.')
         f=plt.figure()
-        plot_dca_map_catch_interactive_year_old(temp, leng_or_komp="Lengdegruppe",color_scale='Inferno',marker_opacity=0.3)
+        fig_plot=plot_dca_map_catch_interactive_year_old(temp,f, leng_or_komp="Lengdegruppe",color_scale='viridis',marker_opacity=0.3)
         plt.title("histogram of average %increase of all municipalities")
-        st.pyplot(f)
+        st.plotly_chart(fig_plot)
         # Add a picture of Norway
