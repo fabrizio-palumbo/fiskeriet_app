@@ -1,9 +1,9 @@
+pip
 streamlit
 pyjstat
 requests
 pandas
 streamlit
-urllib
 matplotlib
 numpy
 seaborn
