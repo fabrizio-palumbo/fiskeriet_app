@@ -1,10 +1,7 @@
 import streamlit as st
-from pyjstat import pyjstat
-import requests
 import json, os
 import pandas as pd
 import streamlit as st
-import urllib.request, json
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -110,7 +107,7 @@ cwd = os.getcwd()
 
 db_folder=cwd+"/database/"
 #ers_fisk_tot = pd.read_parquet("Ers_fisk_total.parquet")
-ers_fisk = pd.read_parquet("db_folder/Ers_fisk.parquet")
+ers_fisk = pd.read_parquet(db_folder+"Ers_fisk.parquet")
 lenge_grouppe=['28 m og over',"27,99 m og under"]#,'Annet'
 mapping_dict_lenge = {'28 m og over':'28 m og over','21-27,99 m': "27,99 m og under",
 '15-20,99 m': "27,99 m og under",'Under 11 m': "27,99 m og under", '11-14,99 m': "27,99 m og under" }
