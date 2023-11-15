@@ -5,7 +5,6 @@ import json, os
 import pandas as pd
 import streamlit as st
 import urllib.request, json
-from custom_functions import *
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
