@@ -1,7 +1,6 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: osx-arm64
-_tflow_select=2.2.0=eigen
 abseil-cpp=20211102.0=hc377ac9_0
 absl-py=1.4.0=py311hca03da5_0
 aiohttp=3.8.5=py311h80987f9_0
@@ -80,8 +79,6 @@ jpeg=9e=h80987f9_1
 jsonschema=4.17.3=py311hca03da5_0
 jupyter_client=8.3.1=pyhd8ed1ab_0
 jupyter_core=5.3.0=py311hca03da5_0
-keras=2.12.0=py311hca03da5_0
-keras-preprocessing=1.1.2=pyhd3eb1b0_0
 kiwisolver=1.4.4=py311h313beb8_0
 krb5=1.20.1=h8380606_1
 lame=3.100=h1a28f6b_0
@@ -189,12 +186,6 @@ snappy=1.1.9=hc377ac9_0
 sqlite=3.41.2=h80987f9_0
 stack_data=0.6.2=pyhd8ed1ab_0
 tenacity=8.2.2=py311hca03da5_0
-tensorboard=2.12.1=py311hca03da5_0
-tensorboard-data-server=0.7.0=py311ha6e5c4f_0
-tensorboard-plugin-wit=1.8.1=py311hca03da5_0
-tensorflow=2.12.0=eigen_py311h689d69b_0
-tensorflow-base=2.12.0=eigen_py311h0a52ebb_0
-tensorflow-estimator=2.12.0=py311hca03da5_0
 termcolor=2.1.0=py311hca03da5_0
 threadpoolctl=2.2.0=pyh0d69192_0
 tk=8.6.12=hb8d0fd4_0
