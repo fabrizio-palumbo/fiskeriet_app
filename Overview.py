@@ -105,7 +105,6 @@ def plot_dca_map_catch_interactive_year_old(df_tot, leng_or_komp, color_scale,ma
     fig.show()
 
 year_start = 2011; year_stop = 2022
-list_fleet_type=pd.read_excel('/Users/fabrizio/Documents/GitHub/fiskeri-data/raw_data/fartøyinndeling_kompensasjon.xlsx')
 typefisks=['Torsk', 'Sei', 'Dypvannsreke']#,'Reke av  Palaemonidaeslekten',  'Hestereke', 'Reke av  Pandalusslekten', 'Reke av Penaeusslekten', 'Reke av Crangonidaeslekten']
 cwd = os.getcwd()
 
