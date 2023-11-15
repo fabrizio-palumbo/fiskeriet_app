@@ -119,9 +119,7 @@ mapping_dict_lenge = {'28 m og over':'28 m og over','21-27,99 m': "27,99 m og un
 #ers_fisk_tot["Lengdegruppe"]=ers_fisk_tot["Lengdegruppe"].map(mapping_dict_lenge)
 ers_fisk["Lengdegruppe"]=ers_fisk["Lengdegruppe"].map(mapping_dict_lenge)
 
-l='28 m og over'
-fish_type="Art"
-temp=ers_fisk.query("Art==@fish_type and Lengdegruppe==@l")
+
 #plot_dca_map_catch_heatmap(temp, leng_or_komp="Lengdegruppe",color_discrete_map=color_map_Lenge, output_html_path="images/"+"Total_norsk_catch_Lengdegruppe_"+fish_type+".html")
 
 
@@ -132,10 +130,11 @@ title_container = st.container()
 with title_container:
     # Define the column layout
     col1, col2 = st.columns(2)
-
-    # Add the webpage to the first column
+      # Add the webpage to the first column
     with col2:
-        print("col2")
+        l = st.selectbox('Select the Lengegruppe',options= [k for k in lenge_grouppe])     
+        fish_type = st.selectbox('Select the fish type',options= [k for k in typefisks])     
+        temp=ers_fisk.query("Art==@fish_type and Lengdegruppe==@l")
     # Add some other content to the second column
     with col1:
         # Set up the app header
