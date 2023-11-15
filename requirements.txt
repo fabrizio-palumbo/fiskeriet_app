@@ -10,3 +10,4 @@ seaborn
 tqdm
 plotly
 pandas
+git-lfs
