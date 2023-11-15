@@ -88,12 +88,7 @@ def plot_dca_map_catch_interactive_year_old(df_tot,f, leng_or_komp, color_scale,
             }
         ])
     # Add title
-    f.add_annotation(
-        text=f"DCA over the Years by {grouped.Art.unique()[0]}",
-        x=0.5, y=1, xref="paper", yref="paper",
-        showarrow=False, font=dict(size=18, color="black"),
-        align="left"
-    )
+   
 
     # Save the figure as an HTML file
     #fig.write_html(output_html_path)
